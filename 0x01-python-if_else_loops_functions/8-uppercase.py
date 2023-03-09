@@ -4,7 +4,7 @@ def uppercase(s):
     for c in s:
         end = '\n' if count == len(s) else ''
         if ord('a') <= ord(c) <= ord('z'):
-            print(chr(ord(c) - 32), end=end)
+            print("{}".format(chr(ord(c) - 32)), end=end)
         else:
-            print(c, end=end)
+            print("{}".format(c), end=end)
         count += 1
