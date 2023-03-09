@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 def uppercase(s):
+    count = 1
     for c in s:
-        # convert lowercase letters to uppercase by subtracting 32 from their ASCII code
+        end = '\n' if count == len(s) else ''
         if ord('a') <= ord(c) <= ord('z'):
-            print(chr(ord(c) - 32), end='')
+            print(chr(ord(c) - 32), end=end)
         else:
-            print(c, end='')
-    print()  # print a new line at the end
+            print(c, end=end)
+        count += 1
