@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-def uppercase(s):
-    count = 1
-    for c in range(len(s)):
-        end = '\n' if count == len(s) else ''
-        if ord('a') <= ord(s[c]) <= ord('z'):
-            print("{}".format(chr(ord(s[c]) - 32)), end=end)
-        else:
-            print("{}".format(s[c]), end=end)
-        count += 1
+def uppercase(str):
+    for i in range(len(str)):
+        char = ord(str[i])
+        if char >= 97 and char <= 122:
+            char = char - 32
+        print("{}".format(chr(char)), end="")
+    print()
