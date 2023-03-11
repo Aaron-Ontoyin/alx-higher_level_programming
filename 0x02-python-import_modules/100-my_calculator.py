@@ -25,4 +25,3 @@ if __name__ == '__main__':
         exit(1)
 
     print("{:d} {:s} {:d} = {:d}".format(arg1, op, arg2, ans))
-
