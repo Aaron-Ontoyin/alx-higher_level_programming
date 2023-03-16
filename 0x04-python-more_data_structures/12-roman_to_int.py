@@ -22,7 +22,7 @@ def roman_to_int(roman_string):
 
     result = 0
     temp = list(roman_string)
-    # Concat 4 and 9s
+    # Concatenate 4 and 9s
     if len(temp) > 1:
         idx = 0
         for i in temp:
@@ -37,7 +37,7 @@ def roman_to_int(roman_string):
             except IndexError:
                 pass
             idx += 1
-    # Search in dict for correct numbers and add
+    # Search in dict for correct numbers and adds
     for k, v in r_dict.items():
         for index in temp:
             if index == k:
