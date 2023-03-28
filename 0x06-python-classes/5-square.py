@@ -4,7 +4,8 @@ Square module.
 
 This module contains a class that defines a square and its size, checks
 if the given values are right, and a setter and getter methods to set or get
-it. Capable of returning the area of the square and handles the print of the square.
+it. Capable of returning the area of the square and handles printing
+of the square.
 
 """
 
