@@ -12,8 +12,8 @@ def error_exit(message="", code=1):
     Handles exit.
 
     Args:
-        message (str): the message to display on stdout.
-        code (int): the exit code.
+        message (str): error message to display on stdout.
+        code (int): exit code.
     """
     print(message)
     exit(code)
