@@ -52,7 +52,7 @@ def rec_backtrack(board, y):
                 rec_backtrack(board, y + 1)
 
 
-if len(sys.argv) is not 2:
+if len(sys.argv) != 2:
     error_exit("Usage: nqueens N")
 
 try:
@@ -62,6 +62,5 @@ try:
 
     board = [[y, 0] for y in range(N)]
     rec_backtrack(board, 0)
-except:
+except ValueError:
     error_exit("N must be a number")
-
