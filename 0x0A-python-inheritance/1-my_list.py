@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """MyList module
 
-MyList inherits from list
-and a method that prints the sorted list.
+MyList inherits from list and a method that prints the sorted list.
 """
 
 
