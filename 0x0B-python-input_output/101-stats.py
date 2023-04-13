@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Log parsing script."""
+"""
+Log parsing script
+"""
 import sys
 
 total_size = 0
@@ -28,7 +30,7 @@ try:
                 total_size += int(line[-1])
                 if tmp == iteration:
                     iteration += 1
-            except:
+            except ValueError:
                 pass
 
         if iteration % 10 == 0 and tmp != iteration:
