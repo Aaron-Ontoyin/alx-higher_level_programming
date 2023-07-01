@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Takes GitHub credentials (username and password) and uses the GitHub API to display your id
+"""Takes GitHub credentials (username and password) and
+uses the GitHub API to display your id
 Usage: ./10-my_github.py <GitHub username> <GitHub password>
 """
 import sys

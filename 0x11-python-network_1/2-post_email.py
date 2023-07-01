@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Send POST request to a URL with a given email mand displays body of response.
+"""Send POST request to a URL with an email and displays body of response.
 Usage: ./2-post_email.py <URL> <email>
 """
 import sys
