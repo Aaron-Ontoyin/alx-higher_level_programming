@@ -37,6 +37,7 @@ if __name__ == "__main__":
 
     session = Session(bind=engine)
 
-    q = session.query(State).filter(State.name == state_name).order_by(State.id)
+    q = session.query(State).filter(State.name == state_name)
+    q = q.order_by(State.id)
 
     print(q.first().id) if q.first() else print("Not found")

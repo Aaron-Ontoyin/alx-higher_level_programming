@@ -13,6 +13,7 @@ Arguments:
 import sys
 import MySQLdb
 
+
 if __name__ == "__main__":
     username, passw, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
 
@@ -21,7 +22,10 @@ if __name__ == "__main__":
     db = MySQLdb.connect(user=username, passwd=passw, db=db_name)
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id", (name_searched,))
+    cur.execute(
+            "SELECT * FROM states WHERE name = %s ORDER BY id",
+            (name_searched,)
+        )
     rows = cur.fetchall()
 
     for row in rows:
