@@ -2,35 +2,45 @@
 
 const request = require('request');
 
-function getFilmCharacters (filmId) {
-  const url = `https://swapi.co/api/films/${filmId}`;
-  request(url, function (error, response, body) {
-    if (error) {
-      console.error('Error fetching film:', error);
-    } else {
-      const characters = JSON.parse(body).characters;
-      printCharacters(characters, 0);
-    }
+function getDataFrom (url) {
+  return new Promise(function (resolve, reject) {
+    request(url, function (err, _res, body) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(body);
+      }
+    });
   });
 }
 
-function printCharacters (characters, index) {
-  if (index >= characters.length) return;
-
-  request(characters[index], function (error, response, body) {
-    if (error) {
-      console.error('Error fetching character:', error);
-    } else {
-      console.log(JSON.parse(body).name);
-      printCharacters(characters, index + 1);
-    }
-  });
+function errHandler (err) {
+  console.log(err);
 }
 
-if (process.argv.length !== 3) {
-  console.error('Usage: node script.js <filmId>');
-  process.exit(1);
+function printMovieCharacters (movieId) {
+  const movieUri = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
+
+  getDataFrom(movieUri)
+    .then(JSON.parse, errHandler)
+    .then(function (res) {
+      const characters = res.characters;
+      const promises = [];
+
+      for (let i = 0; i < characters.length; ++i) {
+        promises.push(getDataFrom(characters[i]));
+      }
+
+      Promise.all(promises)
+        .then((results) => {
+          for (let i = 0; i < results.length; ++i) {
+            console.log(JSON.parse(results[i]).name);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
 }
 
-const filmId = process.argv[2];
-getFilmCharacters(filmId);
+printMovieCharacters(process.argv[2]);
