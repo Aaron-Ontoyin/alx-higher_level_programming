@@ -14,15 +14,11 @@ function getDataFrom (url) {
   });
 }
 
-function errHandler (err) {
-  console.log(err);
-}
-
 function printMovieCharacters (movieId) {
-  const movieUri = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
+  const uri = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
-  getDataFrom(movieUri)
-    .then(JSON.parse, errHandler)
+  getDataFrom(uri)
+    .then(JSON.parse, (err) => { console.log(err) })
     .then(function (res) {
       const characters = res.characters;
       const promises = [];
