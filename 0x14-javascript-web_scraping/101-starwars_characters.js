@@ -2,7 +2,7 @@
 
 const request = require('request');
 
-function getFilmCharacters(filmId) {
+function getFilmCharacters (filmId) {
   const url = `https://swapi.co/api/films/${filmId}`;
   request(url, function (error, response, body) {
     if (error) {
@@ -14,7 +14,7 @@ function getFilmCharacters(filmId) {
   });
 }
 
-function printCharacters(characters, index) {
+function printCharacters (characters, index) {
   if (index >= characters.length) return;
 
   request(characters[index], function (error, response, body) {
