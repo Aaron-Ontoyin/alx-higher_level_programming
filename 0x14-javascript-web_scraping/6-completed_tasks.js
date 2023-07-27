@@ -5,9 +5,9 @@ const request = require('request');
 request(process.argv[2], function (error, response, body) {
   if (!error) {
     const done = {};
-    const notDone = JSON.parse(body);
-    notDone.forEach((todo) => {
-      if (todo.completed && done[todo.userId] === undefined) {
+    const tasks = JSON.parse(body);
+    tasks.forEach((todo) => {
+      if (todo.completed && !done[todo.userId]) {
         done[todo.userId] = 1;
       } else if (todo.completed) {
         done[todo.userId] += 1;
