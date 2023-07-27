@@ -18,7 +18,7 @@ function printMovieCharacters (movieId) {
   const uri = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
   getDataFrom(uri)
-    .then(JSON.parse, (err) => { console.log(err) })
+    .then(JSON.parse, (err) => { console.log(err); })
     .then(function (res) {
       const characters = res.characters;
       const promises = [];
